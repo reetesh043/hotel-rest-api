@@ -29,8 +29,15 @@ class DefaultRatingService implements RatingService {
         int ratingCount = 0;
 
         for (Hotel hotel : hotels) {
-            ratingSum += hotel.getRating();
-            ratingCount++;
+            Double rating = hotel.getRating();
+            if (rating != null) {
+                ratingSum += rating;
+                ratingCount++;
+            }
+        }
+
+        if (ratingCount == 0) {
+            return new RatingReportDto(0, 0.0);
         }
 
         return new RatingReportDto(ratingCount, ratingSum / ratingCount);
