@@ -1,2 +1,2 @@
 # hotel-api
-Rest Api to perform crud operation
+Rest API to perform CRUD operations.
